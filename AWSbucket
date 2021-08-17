@@ -1,0 +1,9 @@
+import boto3
+import pandas as pandas
+s3_client = boto3.client('s3',aws_region_name='sa-east-1')
+
+s3_client.download_file("datalake-sw-igti-edc",
+                       "data/users_ago19.csv",
+                       "data/teste.csv")
+df = pd.read_csv("data/teste.csv")
+print(df)
